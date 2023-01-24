@@ -3,11 +3,7 @@ import { DataSource } from 'typeorm';
 import { User } from './entity/Users';
 
 const AppDataSource = new DataSource({
-  type: 'mysql',
-  host: 'db',
-  port: 3306,
-  username: 'root',
-  password: 'root',
+  type: 'sqlite',
   database: 'app',
   synchronize: true,
   logging: false,
