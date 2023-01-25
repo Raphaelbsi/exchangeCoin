@@ -3,6 +3,8 @@ dotenv.config();
 import express from 'express';
 import { userRouters, transactionsRouters } from './routes';
 import cors, { CorsOptions } from 'cors';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from '../swagger.json';
 
 const corsOptions: CorsOptions = {
   origin: '*',
@@ -12,6 +14,8 @@ const corsOptions: CorsOptions = {
 export const app = express();
 
 app.use(express.json());
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(cors(corsOptions));
 

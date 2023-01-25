@@ -1,0 +1,247 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Exchange Coins",
+    "description": "This api you can convert some currencies",
+    "contact": {
+      "email": "oliveira_raphael@msn.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "API Development"
+    }
+  ],
+  "paths": {
+    "/singup": {
+      "post": {
+        "summary": "Singup",
+        "description": "This route you can do singup",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schema/Singup"
+              },
+              "examples": {
+                "newuser": {
+                  "value": {
+                    "firstName": "Raphael",
+                    "lastName": "Oliveira",
+                    "age": 32,
+                    "email": "oliveira_raphael@msn.com",
+                    "password": "123456",
+                    "login": "rapha"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schema/Singup"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/singin": {
+      "post": {
+        "summary": "Singin",
+        "description": "This route you can do singin",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schema/Singin"
+              },
+              "examples": {
+                "loginUser": {
+                  "value": {
+                    "password": "123456",
+                    "login": "rapha"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schema/SinginResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/change": {
+      "get": {
+        "summary": "Change currencies",
+        "description": "This route you can change your currencies",
+        "tags": [
+          "Change"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schema/Change"
+              },
+              "examples": {
+                "newChange": {
+                  "value": {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY3NDYwNzUxNywiZXhwIjoxNjc0NjA3ODE3fQ.t_zJlZt4pxSYX5Fq5Omd9X0tkXtjvTgq7DdVKZMwRJE",
+                    "originCoin": "EUR",
+                    "originValue": 4,
+                    "destinyCoin": "BRL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schema/ChangeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schema": {
+      "Singup": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "login": {
+            "type": "string"
+          }
+        }
+      },
+      "Singin": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "login": {
+            "type": "string"
+          }
+        }
+      },
+      "SinginResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "Change": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "originCoin": {
+            "type": "string"
+          },
+          "originValue": {
+            "type": "number"
+          },
+          "destinyCoin": {
+            "type": "string"
+          }
+        }
+      },
+      "ChangeResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "userId": {
+            "type": "number"
+          },
+          "originCoin": {
+            "type": "string"
+          },
+          "originValue": {
+            "type": "number"
+          },
+          "destinyCoin": {
+            "type": "string"
+          },
+          "destinyValue": {
+            "type": "number"
+          },
+          "conversionRate": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

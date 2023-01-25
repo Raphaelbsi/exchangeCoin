@@ -10,8 +10,8 @@
     "strictNullChecks": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "declaration": true
-    // "types": ["@types/jest", "@types/node"]
+    "declaration": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*", "test/**/*", "jest.config.ts"]
 }
