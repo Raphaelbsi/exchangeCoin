@@ -5,7 +5,8 @@ ULR DOCSAPI: https://exchangecoins.onrender.com/docs
 
 # Run LocalHost
 1. clone the project
-2. have 2 ways
+# have 2 ways
+
 # First way
 # after clone this project run
 * 1.docker-compose build
@@ -13,5 +14,5 @@ ULR DOCSAPI: https://exchangecoins.onrender.com/docs
 you need have install the docker
 
 # Second way
-* 1. yarn or npm install
-* 2. yarn start or npm start
+* 1.yarn or npm install
+* 2.yarn start or npm start
