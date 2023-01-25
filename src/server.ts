@@ -11,7 +11,9 @@ const corsOptions: CorsOptions = {
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
 };
 
-export const app = express();
+const app = express();
+
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -21,4 +23,4 @@ app.use(cors(corsOptions));
 
 app.use(userRouters, transactionsRouters);
 
-app.listen(3000, () => 'Server Running on port 3000');
+app.listen(port, () => console.log(`Server Running on port ${port}`));
