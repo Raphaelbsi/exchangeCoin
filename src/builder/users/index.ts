@@ -2,8 +2,7 @@ import { FindByEmail, FindByLogin, Login, Save } from '../../controller/users';
 import { LoginBody, Users } from '../../types/user';
 import jwt from 'jsonwebtoken';
 
-// deveria ser uma Env de ambiente
-const SECRET = 'exchange';
+const { SECRET } = process.env;
 
 export const SingunResponse = async (body: Users) => {
   if (body) {
@@ -46,7 +45,9 @@ export const SinginResponse = async (body: LoginBody) => {
     if (login && password) {
       const auth = await Login({ login, password });
       if (auth) {
-        const token = jwt.sign({ userId: 1 }, SECRET, { expiresIn: 300 });
+        const token = jwt.sign({ userId: 1 }, SECRET as string, {
+          expiresIn: 300
+        });
         return { status: 200, message: 'Usuário autenticado', token: token };
       } else {
         return { status: 401, message: 'Digite um usuário e senha válidos' };
