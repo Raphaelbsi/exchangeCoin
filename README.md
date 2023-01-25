@@ -1,7 +1,7 @@
 # Conversor de moedas
 
-Url API: https://exchangecoins.onrender.com/
-ULR DOCSAPI: https://exchangecoins.onrender.com/docs
+*Url API: https://exchangecoins.onrender.com/
+*Url DOCS API: https://exchangecoins.onrender.com/docs
 
 # Run LocalHost
 1. clone the project
