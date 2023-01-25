@@ -3,7 +3,7 @@ import { LoginBody, Users } from '../../types/user';
 import jwt from 'jsonwebtoken';
 
 // deveria ser uma Env de ambiente
-const SECRET = 'Chat2Desk';
+const SECRET = 'exchange';
 
 export const SingunResponse = async (body: Users) => {
   if (body) {

@@ -1,9 +1,10 @@
+import 'reflect-metadata';
 import express, { Request, Response } from 'express';
 import { SinginResponse, SingunResponse } from '../builder/users';
 
-const router = express.Router();
+const userRouters = express.Router();
 
-router.post('/singup', async (req: Request, res: Response) => {
+userRouters.post('/singup', async (req: Request, res: Response) => {
   const response: {
     status: number;
     message: string;
@@ -11,7 +12,7 @@ router.post('/singup', async (req: Request, res: Response) => {
   return res.status(response.status).json(response.message);
 });
 
-router.post('/singin', async (req: Request, res: Response) => {
+userRouters.post('/singin', async (req: Request, res: Response) => {
   const response: {
     status: number;
     message: string;
@@ -25,4 +26,4 @@ router.post('/singin', async (req: Request, res: Response) => {
   return res.status(response.status).json(response.message);
 });
 
-export default router;
+export default userRouters;
