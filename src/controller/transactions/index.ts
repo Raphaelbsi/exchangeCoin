@@ -16,9 +16,5 @@ export async function Save(transaction: Transactions) {
       const response = await Changeresponse(transaction);
       return response;
     }
-    // const UserFound = await AllUser.findOneBy({ id: transaction.userId });
-    // if (UserFound) {
-    //   transaction.userId = await Changeresponse(transaction);
-    // }
   } catch (error) {}
 }
